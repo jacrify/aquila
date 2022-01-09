@@ -1,0 +1,13 @@
+[Unit]
+Description=run fan when hot
+After=local-fs.target sysinit.target
+
+[Service]
+User=root
+Group=root
+Type=simple
+ExecStart=/usr/bin/python3 /home/pi/fanoff.py
+Restart=Always
+
+[Install]
+WantedBy=basic.target
