@@ -3,6 +3,50 @@ host = 0.0.0.0
 port = 7125
 enable_debug_logging = False
 
+[job_queue]
+load_on_startup = True
+
+[power printer]
+type = tplink_smartplug
+off_when_shutdown = True
+on_when_job_queued = True
+locked_while_printing = True
+restart_klipper_when_powered = True
+restart_delay = 1.
+address = 192.168.20.45
+port = 9999
+output_id = 0
+
+[power lights]
+type = tplink_smartplug
+off_when_shutdown = True
+on_when_job_queued = True
+locked_while_printing = False
+restart_klipper_when_powered = False
+address = 192.168.20.45
+port = 9999
+output_id = 2
+
+[power lamp]
+type = tplink_smartplug
+off_when_shutdown = True
+on_when_job_queued = True
+locked_while_printing = False
+restart_klipper_when_powered = False
+address = 192.168.20.45
+port = 9999
+output_id = 1
+
+[timelapse]
+output_path = ~/klipper_logs/timelapse/
+constant_rate_factor = 16
+
+[update_manager timelapse]
+type = git_repo
+primary_branch = main
+path = ~/moonraker-timelapse
+origin = https://github.com/mainsail-crew/moonraker-timelapse.git
+
 [data_store]
 temperature_store_size = 600
 gcode_store_size = 1000
@@ -10,6 +54,7 @@ gcode_store_size = 1000
 [file_manager]
 log_path = ~/klipper_logs
 config_path = ~/klipper_config
+queue_gcode_uploads = True
 
 [authorization]
 force_logins = True
@@ -17,6 +62,7 @@ cors_domains =
 	*.local
 	*.lan
 	*://app.fluidd.xyz
+	*://my.mainsail.xyz
 trusted_clients = 
 	10.0.0.0/8
 	127.0.0.0/8
@@ -32,6 +78,15 @@ trusted_clients =
 
 [update_manager]
 enable_auto_refresh = True
+
+[update_manager client mobileraker-companion]
+type = git_repo
+path = ~/mobileraker_companion
+origin = https://github.com/Clon1998/mobileraker_companion.git
+primary_branch = main
+env = ~/mobileraker-env/bin/python
+requirements = scripts/mobileraker-requirements.txt
+install_script = scripts/install-mobileraker-companion.sh
 
 [update_manager client fluidd]
 type = web
