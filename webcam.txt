@@ -23,11 +23,12 @@ camera="usb"
 #
 # Defaults to a resolution of 640x480 px and a framerate of 10 fps
 #
-
-#Potato
+#logi
+camera_usb_options="-r VGA -f 15"
+#Potatĵo
 #camera_usb_options="-r 640x480"
 #Good
-camera_usb_options="-r 1280x720 -f 15"
+#camera_usb_options="-r 1280x720 -f 15"
 #Compression
 #	camera_usb_options="-r 1920x1080 -f 15"
 
