@@ -19,7 +19,7 @@ output_id = 0
 
 [power lights]
 type = tplink_smartplug
-off_when_shutdown = True
+off_when_shutdown = False
 on_when_job_queued = True
 locked_while_printing = False
 restart_klipper_when_powered = False
@@ -29,7 +29,7 @@ output_id = 2
 
 [power lamp]
 type = tplink_smartplug
-off_when_shutdown = True
+off_when_shutdown = False
 on_when_job_queued = True
 locked_while_printing = False
 restart_klipper_when_powered = False
