@@ -8,7 +8,7 @@ load_on_startup = True
 
 [power printer]
 type = tplink_smartplug
-off_when_shutdown = True
+off_when_shutdown = False
 on_when_job_queued = True
 locked_while_printing = True
 restart_klipper_when_powered = True
@@ -87,4 +87,11 @@ primary_branch = main
 env = ~/mobileraker-env/bin/python
 requirements = scripts/mobileraker-requirements.txt
 install_script = scripts/install-mobileraker-companion.sh
+
+[update_manager sonar]
+type = git_repo
+path = ~/sonar
+origin = https://github.com/mainsail-crew/sonar.git
+primary_branch = main
+managed_services = sonar
 
